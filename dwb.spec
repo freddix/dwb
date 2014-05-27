@@ -1,15 +1,16 @@
-%define		gitver	9c32aec8661b894f429d41463114d68bb485376a
+%define		gitver	%{nil}
 
 Summary:	A Webkit web browser
 Name:		dwb
-Version:	20130809
+Version:	2014.03.07
 Release:	1
 License:	GPL v3
 Group:		X11/Applications
 # git clone https://portix@bitbucket.org/portix/dwb.git
 # git log -1 --format="%H" --> gitver
 # git archive --format=tar --prefix=dwb-$(date +%Y%m%d)/ HEAD | xz -c > dwb-$(date +%Y%m%d)-$(git log -1 --format="%H").tar.xz
-Source0:	%{name}-%{version}-%{gitver}.tar.xz
+#Source0:	%{name}-%{version}-%{gitver}.tar.xz
+Source0:	https://bitbucket.org/portix/dwb/downloads/%{name}-%{version}.tar.gz
 # Source0-md5:	ced373fc2135f3e50015d066327c02b1
 BuildRequires:	gtk+-webkit-devel
 BuildRequires:	libsoup-devel
