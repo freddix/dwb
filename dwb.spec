@@ -11,7 +11,8 @@ Group:		X11/Applications
 # git archive --format=tar --prefix=dwb-$(date +%Y%m%d)/ HEAD | xz -c > dwb-$(date +%Y%m%d)-$(git log -1 --format="%H").tar.xz
 #Source0:	%{name}-%{version}-%{gitver}.tar.xz
 Source0:	https://bitbucket.org/portix/dwb/downloads/%{name}-%{version}.tar.gz
-# Source0-md5:	ced373fc2135f3e50015d066327c02b1
+# Source0-md5:	270f17a3b926cae48dff475aa786df22
+Patch0:		%{name}-glib240.patch
 BuildRequires:	gtk+-webkit-devel
 BuildRequires:	libsoup-devel
 Requires(post,postun):	desktop-file-utils
@@ -26,6 +27,7 @@ keyboard driven, inspired by firefox's vimperator plugin.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 export CC="%{__cc}"
